@@ -2,7 +2,7 @@ import React from "react";
 
 const Subscribe = () => {
   return (
-    <div className="my-10 flex flex-col items-center border-b-2 border-t-2 py-32">
+    <div className="my-10 flex flex-col items-center border-b-2 border-t-2 py-28">
       <div className="flex w-[30rem] flex-col">
         <h1 className="text-center text-xl font-semibold">
           Lorem ipsum dolor sit, amet consectetur adipisicing elit. Optio
