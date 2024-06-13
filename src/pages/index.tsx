@@ -9,11 +9,19 @@ import HeroProduct from "~/components/HeroProduct";
 
 const HomePage = () => {
   const [activeCategory, setActiveCategory] = useState(null);
+  const [randomProducts, setRandomProducts] = useState<any[]>([]);
   const [products, setProducts] = useState([]);
+
+  const getRandomProducts = (products: any) => {
+    const shuffled = [...products].sort(() => 0.5 - Math.random());
+    const result = shuffled.slice(0, 3);
+    setRandomProducts(result);
+  };
 
   const fetchProduct = async () => {
     await axios.get(`/api/product`).then((res) => {
       setProducts(res.data);
+      getRandomProducts(res.data);
     });
   };
 
@@ -33,9 +41,9 @@ const HomePage = () => {
         <Navbar />
 
         <div>
-          <div className="grid grid-cols-2 grid-rows-2 gap-5 ">
-            {products.map((product: any, idx) => (
-              <HeroProduct key={product.id} {...product} idx={idx} />
+          <div className="grid grid-cols-2 grid-rows-2 gap-5">
+            {randomProducts.map((product: any, idx) => (
+              <HeroProduct key={idx} {...product} idx={idx} />
             ))}
           </div>
 
@@ -56,7 +64,7 @@ const HomePage = () => {
             />
           </div>
 
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+          <div className="grid grid-cols-1 gap-x-6 gap-y-20 md:grid-cols-2 lg:grid-cols-3">
             {products.map((product: any) => {
               if (
                 activeCategory === product.category ||

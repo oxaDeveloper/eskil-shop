@@ -23,15 +23,13 @@ const HeroProduct: React.FC<ProductCardProps> = ({
         <p className="text-base font-semibold">by {brand}</p>
       </div>
 
-      <div
-        className={`flex justify-center bg-gray-200 p-5 ${idx !== 0 && "w-[10rem]"}`}
-      >
+      <div className={`flex justify-center bg-gray-200 p-5`}>
         <Image
           src={imageUrl}
           alt={name}
           width={1080}
           height={1080}
-          className={`object-cover`}
+          className={`object-cover ${idx !== 0 && "w-[12rem]"}`}
         />
       </div>
     </div>
