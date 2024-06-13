@@ -6,6 +6,7 @@ import Footer from "~/components/Footer";
 import Navbar from "~/components/Navbar";
 import Filter from "~/components/Filter";
 import HeroProduct from "~/components/HeroProduct";
+import Subscribe from "~/components/Subscribe";
 
 const HomePage = () => {
   const [activeCategory, setActiveCategory] = useState(null);
@@ -77,6 +78,7 @@ const HomePage = () => {
         </div>
       </main>
 
+      <Subscribe />
       <Footer />
     </div>
   );
